@@ -990,7 +990,7 @@ input[type="range"]::-moz-range-thumb {
   --hb-haze-3: #F8F7F3;       /* farthest, faintest band (site --bg-tint) */
 
   --hb-silhouette-color: #A9BCD3; /* desaturated blue-grey hills */
-  --hb-silhouette-opacity: 0.9;   /* overall strength of the silhouette layer */
+  --hb-silhouette-opacity: 1;   /* overall strength of the silhouette layer */
 
   --hb-bloom-color: #E4ECF4;  /* glow color behind the shot (site --brand-wash) */
   --hb-bloom-opacity: 0.65;
@@ -1066,13 +1066,24 @@ input[type="range"]::-moz-range-thumb {
  * set --hb-silhouette-opacity: 0) if it ever starts looking too
  * "landscape-y" for the brand.                                       */
 .hb-silhouette {
-  /* Layered ridges with atmospheric perspective — distant ranges pale
-     and high, near ranges denser and low. Blur is baked into the SVG. */
-  background-image: url("data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 420" preserveAspectRatio="none"><defs><filter id="s" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.6"/></filter><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.55" stop-color="#fff" stop-opacity="0.35"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient></defs><g filter="url(#s)"><path fill="#C6D4E4" d="M0 420V250l92-52 70 36 90-72 82 52 88-66 100 56 90-32 92 52 98-66 90 50 90-30 100 46 90-36 78 42 80-28v190z"/><path fill="#AEC1D6" d="M0 420V312l112-48 88 36 100-62 100 52 100-40 100 46 110-34 100 42 110-40 100 46 108-34 92 38 120-30v106z"/><path fill="#93AAC5" d="M0 420V356l130-32 130 26 120-32 120 30 120-26 130 30 130-24 126 28 118-20 116 24v40z"/></g><rect width="1440" height="420" fill="url(#fade)"/></svg>");
+  /* Real photograph: CC0 layered ridges. Masked top and bottom so the
+     headline sits on clean ground and the section melts into white,
+     and tinted toward the brand navy rather than its native cyan. */
+  background-image: url("assets/hero-ridges.jpg");
   background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 100% clamp(240px, 42%, 460px);
-  opacity: var(--hb-silhouette-opacity);
+  background-position: center 38%;
+  background-size: cover;
+  opacity: .92;
+  filter: saturate(.68) hue-rotate(-12deg) contrast(.96) brightness(1.05);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 16%, #000 46%, #000 68%, transparent 97%);
+          mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 16%, #000 46%, #000 68%, transparent 97%);
+}
+
+/* Guarantees headline contrast over the photograph. */
+.hb-silhouette::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.30) 34%, rgba(255,255,255,0) 58%);
 }
 
 /* ---- layer 5: light bloom behind the product shot ------------------ *
@@ -2930,4 +2941,16 @@ input[type="range"]::-moz-range-thumb {
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
   .pf-slack-panel { scroll-behavior: auto; }
+}
+
+
+/* Prospect portrait in the appointment brief. Illustrative stock imagery —
+   never presented as a named client. */
+.dm-person { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.dm-person .dm-big { margin-bottom: 0; }
+.dm-avatar {
+  width: 46px; height: 46px; border-radius: 50%;
+  object-fit: cover; object-position: 54% 18%;
+  flex: none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.14);
 }

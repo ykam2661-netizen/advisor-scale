@@ -177,11 +177,18 @@
             <rect x="70" y="31" width="74" height="7" rx="3.5" fill="#CFC9BC"/>
             <rect x="70" y="43" width="44" height="6" rx="3" fill="#E8E2D6"/>
             <rect x="242" y="34" width="26" height="4" rx="2" fill="#E8E2D6"/>
-            <rect x="30" y="60" width="260" height="106" fill="var(--brand-wash)"/>
-            <circle cx="118" cy="112" r="30" fill="#fff" opacity=".55"/>
-            <path d="M30 152l38-30 26 20 34-30 40 32 32-22 40 30v14H30z" fill="var(--brand)" opacity=".18"/>
-            <rect x="44" y="82" width="90" height="8" rx="4" fill="#fff" opacity=".85"/>
-            <rect x="44" y="96" width="62" height="8" rx="4" fill="#fff" opacity=".6"/>
+            <defs>
+              <clipPath id="clipAdImg"><rect x="30" y="60" width="260" height="106"/></clipPath>
+              <linearGradient id="adScrim" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0E2A47" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#0E2A47" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <image href="assets/person-3.jpg" x="30" y="52" width="260" height="122"
+                   preserveAspectRatio="xMidYMid slice" clip-path="url(#clipAdImg)"/>
+            <rect x="30" y="60" width="260" height="66" fill="url(#adScrim)" clip-path="url(#clipAdImg)"/>
+            <rect x="44" y="76" width="104" height="8" rx="4" fill="#fff" opacity=".92"/>
+            <rect x="44" y="90" width="70" height="8" rx="4" fill="#fff" opacity=".62"/>
             <rect x="44" y="180" width="140" height="8" rx="4" fill="#B5AE9E"/>
             <rect x="44" y="196" width="96" height="7" rx="3.5" fill="#DCE1E8"/>
             <rect x="200" y="180" width="76" height="28" rx="8" fill="var(--brand-deep)"/>
@@ -199,7 +206,23 @@
         <div class="b-mock">
           <svg viewBox="0 0 320 240" role="img" aria-label="Qualification checklist with four criteria met">
             <rect x="26" y="20" width="268" height="200" rx="12" fill="#fff" stroke="var(--card-line)"/>
-            <rect x="46" y="40" width="88" height="7" rx="3.5" fill="#CFC9BC"/>
+            <defs>
+              <clipPath id="clipAv1"><circle cx="62" cy="46" r="19"/></clipPath>
+              <clipPath id="clipAv2"><circle cx="94" cy="46" r="19"/></clipPath>
+              <clipPath id="clipAv3"><circle cx="126" cy="46" r="19"/></clipPath>
+            </defs>
+            <circle cx="62" cy="46" r="20.5" fill="#fff"/>
+            <image href="assets/person-1.jpg" x="8" y="31" width="100" height="67"
+                   preserveAspectRatio="none" clip-path="url(#clipAv1)"/>
+            <circle cx="94" cy="46" r="20.5" fill="#fff"/>
+            <image href="assets/person-2.jpg" x="36" y="25" width="100" height="67"
+                   preserveAspectRatio="none" clip-path="url(#clipAv2)"/>
+            <circle cx="126" cy="46" r="20.5" fill="#fff"/>
+            <image href="assets/person-5.jpg" x="64" y="19" width="100" height="67"
+                   preserveAspectRatio="none" clip-path="url(#clipAv3)"/>
+            <rect x="152" y="35" width="104" height="22" rx="11" fill="var(--navy)"/>
+            <text x="204" y="50" text-anchor="middle" font-family="Inter, sans-serif"
+                  font-size="11" font-weight="600" fill="#fff">$250K+ assets</text>
             <g>
               <circle cx="54" cy="76" r="10" fill="var(--brand)"/>
               <path d="M50 76l3 3 5.5-5.5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -824,7 +847,10 @@
       <article class="sc" id="sc-1" role="tabpanel" aria-labelledby="tab-1" data-state="active">
         <div class="dm">
           <div class="dm-hd"><span>APPOINTMENT BRIEF</span><em>Tue 10:30</em></div>
-          <div class="dm-big"><small>PROSPECT</small>R.M. · 63</div>
+          <div class="dm-person">
+            <img class="dm-avatar" src="assets/person-1.jpg" alt="" width="46" height="46" loading="lazy">
+            <div class="dm-big"><small>PROSPECT</small>R.M. &middot; 63</div>
+          </div>
           <dl class="dm-kv">
             <div><dt>Investable</dt><dd>$500K–1M</dd></div>
             <div><dt>Held in</dt><dd>401(k), rolled</dd></div>
