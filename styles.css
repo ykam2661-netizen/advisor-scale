@@ -27,7 +27,11 @@
   --r-inner:   12px;
   --shadow:    0 1px 2px rgba(16, 19, 24, .04);
   --shadow-btn: 0 6px 18px rgba(37, 99, 235, .22);
-  --font: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont,
+  /* commas.com pairs Inter (text) with Inter Display (headings). Both are
+     the same variable family separated by the opsz axis, so one font load
+     covers both: body runs at its natural optical size, headings are
+     pinned to opsz 32 — which IS the Display cut. */
+  --font: "Inter", -apple-system, BlinkMacSystemFont,
           "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
@@ -44,6 +48,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-variant-numeric: tabular-nums;
+  font-optical-sizing: auto;
+}
+
+/* Display cut — the Inter Display half of the pairing. */
+.display, .h2, .h2-lg, .h3, .big-num, .dm-big, .logo, .sc-cap b {
+  font-variation-settings: "opsz" 32;
 }
 img, svg { display: block; max-width: 100%; }
 h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
@@ -474,16 +484,45 @@ section { padding-block: 128px; }
   --d-ink:   #F4F6F9;
   --d-ink-2: #99A2AE;
   position: relative;
-  background: #0B0D10;
+  isolation: isolate;
   color: var(--d-ink);
   text-align: center;
   overflow: hidden;
+
+  /* Aurora mesh: four coloured lights over a deep base. Layered radials
+     rather than one glow, so the field has direction instead of a hotspot. */
+  background:
+    radial-gradient(1200px 700px at 10%  -8%, rgba( 59,130,246,.34), transparent 60%),
+    radial-gradient(1000px 620px at 90%   4%, rgba(129,110,255,.30), transparent 62%),
+    radial-gradient( 900px 560px at 50% 100%, rgba( 37, 99,235,.26), transparent 64%),
+    radial-gradient( 760px 480px at 24%  60%, rgba( 56,189,248,.13), transparent 66%),
+    radial-gradient( 700px 440px at 78%  70%, rgba(147,110,255,.12), transparent 66%),
+    radial-gradient(1400px 820px at 50%  42%, #141A24 0%, #0A0C11 64%),
+    #08090C;
 }
+
+/* Soft halo behind the headline, sitting above the mesh. */
 .showcase::before {
   content: "";
-  position: absolute; inset: -300px 0 auto 0; height: 900px;
-  background: radial-gradient(680px 380px at 50% 260px, rgba(59,130,246,.16) 0%, rgba(59,130,246,0) 70%);
+  position: absolute; inset: -260px 0 auto 0; height: 860px;
+  z-index: -1;
+  background: radial-gradient(720px 400px at 50% 300px, rgba(96,165,250,.18) 0%, rgba(96,165,250,0) 70%);
   pointer-events: none;
+}
+
+/* Film grain + vignette. The grain is what stops a dark gradient this
+   large from banding into visible stripes on an 8-bit display — it is
+   doing real work, not decoration. */
+.showcase::after {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .5;
+  background:
+    radial-gradient(125% 82% at 50% 46%, transparent 56%, rgba(0,0,0,.40) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  background-size: cover, 200px 200px;
 }
 .showcase > .container { position: relative; }
 .showcase .h2 { margin: 20px auto 0; max-width: 20ch; color: var(--d-ink); }
@@ -520,10 +559,16 @@ section { padding-block: 128px; }
   gap: 20px; align-items: center;
   margin-top: 56px;
 }
+/* Glass over the mesh: translucent so the aurora reads through the cards
+   instead of being blocked by them. Solid --d-card is the fallback for
+   engines without backdrop-filter. */
 .sc {
   position: relative; text-align: left;
   background: var(--d-card);
-  border: 1px solid var(--d-line);
+  background: linear-gradient(180deg, rgba(32,37,46,.74), rgba(16,19,25,.80));
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  backdrop-filter: blur(14px) saturate(125%);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: 18px;
   padding: 16px;
   transition: transform .3s ease, opacity .3s ease, box-shadow .3s ease;
@@ -534,8 +579,8 @@ section { padding-block: 128px; }
   transform: scale(1.05);
   opacity: 1;
   z-index: 2;
-  box-shadow: 0 24px 60px rgba(0,0,0,.5);
-  border-color: #333944;
+  box-shadow: 0 28px 70px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.15);
 }
 .sc-cap { margin-top: 14px; }
 .sc-cap b {
@@ -548,8 +593,8 @@ section { padding-block: 128px; }
 
 /* dark inner mockups */
 .dm {
-  background: #0E1116;
-  border: 1px solid var(--d-line);
+  background: rgba(8,10,14,.55);
+  border: 1px solid rgba(255,255,255,.07);
   border-radius: 12px;
   padding: 13px;
 }
