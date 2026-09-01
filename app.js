@@ -1,5 +1,5 @@
 /* =====================================================================
-   Advisor Scale Marketing — behaviour
+   Mabiat Advisor Marketing — behaviour
    Nav dropdowns · mobile menu · production calculator
    No scroll-triggered animation anywhere. The only motion is the
    calculator ticking between two real numbers on input.
@@ -82,6 +82,45 @@
 
     document.addEventListener('click', function (e) {
       if (!e.target.closest('[data-dropdown]')) closeAll(null);
+    });
+  }
+
+  /* ---------- showcase tabs ----------
+     User-driven only. The default card is already marked active in the
+     HTML, so with JS off the section still shows a real, readable card. */
+  var tablist = document.querySelector('.showcase .tabs');
+
+  if (tablist) {
+    var tabs  = Array.prototype.slice.call(tablist.querySelectorAll('.tab'));
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.showcase .sc'));
+
+    function select(i) {
+      tabs.forEach(function (t, n) {
+        t.setAttribute('aria-selected', String(n === i));
+        t.tabIndex = n === i ? 0 : -1;
+      });
+      cards.forEach(function (c, n) {
+        c.setAttribute('data-state', n === i ? 'active' : 'side');
+      });
+    }
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(i); });
+    });
+
+    tablist.addEventListener('keydown', function (e) {
+      var i = tabs.indexOf(document.activeElement);
+      if (i < 0) return;
+      var next = e.key === 'ArrowRight' ? i + 1
+               : e.key === 'ArrowLeft'  ? i - 1
+               : e.key === 'Home'       ? 0
+               : e.key === 'End'        ? tabs.length - 1
+               : -1;
+      if (next === -1) return;
+      e.preventDefault();
+      next = (next + tabs.length) % tabs.length;
+      select(next);
+      tabs[next].focus();
     });
   }
 
