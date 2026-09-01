@@ -1,0 +1,266 @@
+/* =====================================================================
+   Social proof section (#results) — parts/proof.css
+   Prefix: all selectors below are scoped with `pf-` so nothing collides
+   with the host page's global stylesheet. Uses the host page's design
+   tokens (--bg, --ink, --blue, --container, --r-card, etc.) — this file
+   assumes those custom properties already exist on :root.
+   Sections: stat band → Slack testimonial block → wide quote row
+   ===================================================================== */
+
+/* ===== STAT BAND (Part 1) ===== */
+.pf-stat-band {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--card-line);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 40px;
+}
+
+.pf-stat-hero {
+  padding-right: 40px;
+  border-right: 1px solid var(--line);
+  min-width: 0;
+}
+.pf-stat-value {
+  font-size: clamp(38px, 5.6vw, 60px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1;
+  color: var(--ink);
+  font-variation-settings: "opsz" 32;
+}
+.pf-stat-label {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 28ch;
+}
+
+.pf-stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  min-width: 0;
+}
+.pf-stat-tile { min-width: 0; }
+.pf-tile-value {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+.pf-tile-label {
+  margin-top: 6px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.pf-stat-caption {
+  margin-top: 16px;
+  max-width: 80ch;
+}
+
+/* ===== SLACK BLOCK (Part 2) ===== */
+.pf-slack {
+  margin-top: 56px;
+  background: var(--bg);
+  border: 1px solid var(--card-line);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.pf-slack-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 22px;
+  background: var(--bg-tint);
+  border-bottom: 1px solid var(--line);
+}
+.pf-slack-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+.pf-slack-title svg { width: 15px; height: 15px; color: var(--ink-3); flex: none; }
+
+/* Auto-scroll toggle: hidden by default (no-JS state). JS adds
+   .pf-has-js to the section root once it's confirmed motion is safe
+   (i.e. prefers-reduced-motion is NOT set), which reveals the button. */
+.pf-marquee-toggle {
+  display: none;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 13px;
+  border: 1px solid var(--card-line);
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 12.5px;
+  color: var(--ink-2);
+  cursor: pointer;
+  flex: none;
+  transition: border-color .18s ease, background .18s ease;
+}
+.pf-marquee-toggle:hover { border-color: var(--ink-3); background: var(--bg-tint); }
+.pf-marquee-toggle svg { width: 12px; height: 12px; flex: none; }
+.pf-has-js .pf-marquee-toggle { display: inline-flex; }
+.pf-marquee-toggle .pf-icon-play { display: none; }
+.pf-marquee-toggle[aria-pressed="true"] .pf-icon-pause { display: none; }
+.pf-marquee-toggle[aria-pressed="true"] .pf-icon-play { display: block; }
+
+.pf-slack-panel {
+  max-height: 460px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: 20px 22px;
+}
+.pf-slack-panel:focus-visible {
+  outline: 2px solid var(--blue-deep);
+  outline-offset: -2px;
+}
+
+.pf-slack-messages { display: grid; gap: 24px; }
+
+.pf-msg { display: flex; gap: 12px; align-items: flex-start; }
+.pf-msg-body { min-width: 0; flex: 1; }
+
+.pf-avatar {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #fff;
+}
+.pf-avatar-a { background: var(--blue-deep); }
+.pf-avatar-f { background: var(--ink); }
+.pf-avatar-p { background: var(--blue); }
+.pf-avatar-m { background: var(--ink-3); }
+
+.pf-msg-meta { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
+.pf-msg-name { font-weight: 600; font-size: 14.5px; color: var(--ink); }
+.pf-msg-time { font-size: 12px; color: var(--ink-3); }
+.pf-msg-text {
+  margin-top: 4px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  overflow-wrap: break-word;
+}
+
+.pf-reactions { display: flex; gap: 6px; margin-top: 9px; flex-wrap: wrap; }
+.pf-reaction {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: var(--blue-wash);
+  border: 1px solid rgba(37, 99, 235, .18);
+  font-size: 12px;
+  color: var(--blue-deep);
+}
+
+.pf-thread {
+  margin-top: 16px;
+  padding-left: 18px;
+  border-left: 2px solid var(--line);
+  display: grid;
+  gap: 16px;
+}
+.pf-reply { display: flex; gap: 10px; align-items: flex-start; }
+.pf-reply .pf-avatar { width: 28px; height: 28px; font-size: 10px; border-radius: 8px; }
+.pf-reply .pf-msg-text { font-size: 13.5px; }
+
+/* ===== WIDE QUOTE ROW (Part 3) ===== */
+.pf-quotes {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.pf-quote {
+  background: var(--bg);
+  border: 1px solid var(--card-line);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+.pf-quote p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.pf-cite {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-style: normal;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.pf-cite-name { font-weight: 600; font-size: 14px; color: var(--ink); }
+.pf-cite-meta { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-3); }
+.pf-cite-sep { color: var(--ink-3); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1000px) {
+  .pf-stat-band { padding: 32px; gap: 32px; }
+}
+
+@media (max-width: 860px) {
+  .pf-stat-band {
+    grid-template-columns: 1fr;
+    padding: 28px;
+    gap: 28px;
+  }
+  .pf-stat-hero {
+    padding-right: 0;
+    padding-bottom: 24px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .pf-stat-label { max-width: 46ch; }
+  .pf-quotes { grid-template-columns: 1fr; }
+  .pf-slack { margin-top: 40px; }
+}
+
+@media (max-width: 620px) {
+  .pf-stat-band { padding: 22px; }
+  .pf-stat-tiles { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .pf-slack-header { padding: 14px 16px; flex-wrap: wrap; }
+  .pf-slack-panel { padding: 16px; max-height: 420px; }
+  .pf-marquee-toggle-label { display: none; }
+  .pf-marquee-toggle { padding: 0 10px; gap: 0; }
+  .pf-quote { padding: 22px 20px; }
+}
+
+@media (max-width: 400px) {
+  .pf-stat-tiles { grid-template-columns: 1fr; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .pf-slack-panel { scroll-behavior: auto; }
+}

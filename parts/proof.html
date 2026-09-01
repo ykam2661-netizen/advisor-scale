@@ -1,0 +1,206 @@
+<section id="results">
+  <div class="container">
+
+    <header class="sec-head">
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 10h.01M12 10h.01M16 10h.01" />
+          <path d="M21 12c0 4.42-4.03 8-9 8-1.16 0-2.27-.2-3.29-.55L3 21l1.62-4.05C3.6 15.5 3 13.82 3 12c0-4.42 4.03-8 9-8s9 3.58 9 8Z" />
+        </svg>
+        Track record
+      </span>
+      <h2 class="h2">What advisors say, and the numbers behind it.</h2>
+      <p class="body">The structural facts about how the program runs, alongside advisor feedback as it comes in.</p>
+    </header>
+
+    <!-- ============================================================
+         PART 1 — STAT BAND
+         Hero claim + structural facts. No performance metrics
+         (close rates, ROI, appointment counts, revenue) belong here —
+         only things that are true by design of the program.
+         ============================================================ -->
+    <div class="pf-stat-band">
+      <div class="pf-stat-hero">
+        <p class="pf-stat-value">$20M+</p>
+        <p class="pf-stat-label">in ad spend managed on Facebook and Instagram</p>
+      </div>
+      <div class="pf-stat-tiles">
+        <div class="pf-stat-tile">
+          <p class="pf-tile-value">One firm</p>
+          <p class="pf-tile-label">per territory — exclusive, never shared with a competitor</p>
+        </div>
+        <div class="pf-stat-tile">
+          <p class="pf-tile-value">$250K+</p>
+          <p class="pf-tile-label">minimum investable assets, the qualifying criterion for every lead</p>
+        </div>
+        <div class="pf-stat-tile">
+          <p class="pf-tile-value">US-based</p>
+          <p class="pf-tile-label">appointment-setting team, not an overseas call center</p>
+        </div>
+      </div>
+    </div>
+    <p class="caption pf-stat-caption">Ad spend figures refer to cumulative media spend managed across client ad accounts on Facebook and Instagram, not a projection or guarantee of results for any individual advisor.</p>
+
+    <!--
+      ============================================================
+      REPLACING THESE WITH REAL TESTIMONIALS
+      ============================================================
+      Everything inside .pf-slack below is a structural mock-up, not
+      real client feedback. Before this goes live, swap the following
+      placeholder strings for real, permissioned quotes:
+
+        - .pf-msg-name / .pf-cite-name  → the real display name (or the
+          name + description the person has approved for public use).
+        - .pf-avatar text (currently "A A", "F P", "P R", "M M")
+          → either leave as neutral initials the person is comfortable
+          with, or replace with a real photo (swap the <div class=
+          "pf-avatar"> for an <img>, keep the same size/rounded-square
+          shape).
+        - .pf-msg-text / blockquote <p> text in brackets, e.g.
+          "[Paste the advisor's own words here...]" → the person's own
+          words, verbatim or lightly trimmed for length only.
+        - .pf-cite-firm / .pf-cite-state → the real firm name and state,
+          only if the person has approved naming their firm publicly.
+        - Timestamps and emoji reaction counts are cosmetic UI chrome,
+          not factual claims — adjust freely, they don't need sourcing.
+
+      IMPORTANT: every quote must be the person's own words, and you
+      need their explicit permission to publish it with their name
+      and/or firm attached (FTC Endorsement Guides). Do not write new
+      quotes on someone's behalf and attribute them to a real person.
+      If a quote can't be sourced yet, leave the bracketed placeholder
+      in place rather than inventing one.
+      ============================================================
+    -->
+    <div class="pf-slack" id="pf-slack">
+      <div class="pf-slack-header">
+        <div class="pf-slack-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 4 7 20M17 4l-2 16M4 9h16M3 15h16" />
+          </svg>
+          advisor-feedback
+        </div>
+        <button type="button" class="pf-marquee-toggle" id="pf-marquee-toggle" aria-pressed="false" aria-controls="pf-slack-panel">
+          <svg class="pf-icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg class="pf-icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>
+          <span class="pf-marquee-toggle-label">Pause auto-scroll</span>
+        </button>
+      </div>
+
+      <div class="pf-slack-panel" id="pf-slack-panel" tabindex="0" role="region" aria-label="Advisor feedback messages, scrollable">
+        <ol class="pf-slack-messages">
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-a" aria-hidden="true">A A</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">Advisor name — [state]</span>
+                <span class="pf-msg-time">9:14 AM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the advisor's own words here — what changed for them, in one or two sentences.]</p>
+              <div class="pf-reactions">
+                <span class="pf-reaction">🔥 <span aria-label="3 reactions">3</span></span>
+              </div>
+              <ol class="pf-thread">
+                <li class="pf-reply">
+                  <div class="pf-avatar pf-avatar-m" aria-hidden="true">M M</div>
+                  <div class="pf-msg-body">
+                    <p class="pf-msg-meta">
+                      <span class="pf-msg-name">Mabiat AM team</span>
+                      <span class="pf-msg-time">9:20 AM</span>
+                    </p>
+                    <p class="pf-msg-text">[Optional — a short internal reply or thank-you from the Mabiat AM team. Delete this reply if unused.]</p>
+                  </div>
+                </li>
+                <li class="pf-reply">
+                  <div class="pf-avatar pf-avatar-a" aria-hidden="true">A A</div>
+                  <div class="pf-msg-body">
+                    <p class="pf-msg-meta">
+                      <span class="pf-msg-name">Advisor name — [state]</span>
+                      <span class="pf-msg-time">9:24 AM</span>
+                    </p>
+                    <p class="pf-msg-text">[Optional — a second threaded reply. Delete if unused.]</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </li>
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-f" aria-hidden="true">F P</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">Firm principal — [state]</span>
+                <span class="pf-msg-time">9:47 AM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the firm principal's own words here — one or two sentences, their language, not rewritten.]</p>
+              <div class="pf-reactions">
+                <span class="pf-reaction">👍 <span aria-label="2 reactions">2</span></span>
+              </div>
+            </div>
+          </li>
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-p" aria-hidden="true">P R</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">FIA producer — [state]</span>
+                <span class="pf-msg-time">11:02 AM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the FIA producer's own words here — what specifically improved for their calendar or pipeline.]</p>
+              <div class="pf-reactions">
+                <span class="pf-reaction">🙌 <span aria-label="4 reactions">4</span></span>
+                <span class="pf-reaction">🔥 <span aria-label="1 reaction">1</span></span>
+              </div>
+            </div>
+          </li>
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-m" aria-hidden="true">R O</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">RIA owner — [state]</span>
+                <span class="pf-msg-time">Yesterday, 4:12 PM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the RIA owner's own words here — keep it short, their phrasing, not a paraphrase.]</p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PART 3 — WIDER TESTIMONIAL ROW
+         Same placeholder-copy rule as the Slack block above: swap the
+         blockquote text and every .pf-cite-* value for a real,
+         permissioned quote before this goes live.
+         ============================================================ -->
+    <div class="pf-quotes">
+      <blockquote class="pf-quote">
+        <p>[Paste a longer, permissioned quote here — two or three sentences in the advisor's own words about what changed for their book of business.]</p>
+        <cite class="pf-cite">
+          <span class="pf-cite-name">Advisor name</span>
+          <span class="pf-cite-meta"><span class="pf-cite-firm">Firm name</span><span class="pf-cite-sep" aria-hidden="true">·</span><span class="pf-cite-state">State</span></span>
+        </cite>
+      </blockquote>
+
+      <blockquote class="pf-quote">
+        <p>[Paste a longer, permissioned quote here — two or three sentences in the firm principal's own words about the territory model or lead quality.]</p>
+        <cite class="pf-cite">
+          <span class="pf-cite-name">Firm principal</span>
+          <span class="pf-cite-meta"><span class="pf-cite-firm">Firm name</span><span class="pf-cite-sep" aria-hidden="true">·</span><span class="pf-cite-state">State</span></span>
+        </cite>
+      </blockquote>
+
+      <blockquote class="pf-quote">
+        <p>[Paste a longer, permissioned quote here — two or three sentences in the FIA producer's own words about the booking process or calendar.]</p>
+        <cite class="pf-cite">
+          <span class="pf-cite-name">FIA producer</span>
+          <span class="pf-cite-meta"><span class="pf-cite-firm">Firm name</span><span class="pf-cite-sep" aria-hidden="true">·</span><span class="pf-cite-state">State</span></span>
+        </cite>
+      </blockquote>
+    </div>
+
+  </div>
+</section>
