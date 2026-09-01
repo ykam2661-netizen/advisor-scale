@@ -45,35 +45,14 @@
       <span>Mabiat AM</span>
     </a>
 
+    <!-- Flat nav: one link, one destination. No dropdowns. -->
     <nav class="nav-links" aria-label="Primary">
-      <div class="nav-item" data-dropdown>
-        <a class="nav-link" href="#services" aria-haspopup="true" aria-expanded="false">
-          Services <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
-        </a>
-        <div class="nav-panel">
-          <a href="#services"><b>Ads</b>Reach retirees, not everyone</a>
-          <a href="#services"><b>Screening</b>Before your calendar, not on it</a>
-          <a href="#services"><b>Booking &amp; confirmation</b>People in the chair</a>
-          <a href="#services"><b>Dashboard</b>Booked, shown, closed</a>
-          <a href="#system"><b>The system</b>How a lead becomes a booked slot</a>
-          <a href="#appointments"><b>Appointments</b>What actually lands on your calendar</a>
-        </div>
-      </div>
-
-      <div class="nav-item" data-dropdown>
-        <a class="nav-link" href="#fit" aria-haspopup="true" aria-expanded="false">
-          Who it's for <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
-        </a>
-        <div class="nav-panel">
-          <a href="#fit"><b>Annuity advisors</b>You close well, you need at-bats</a>
-          <a href="#fit"><b>FIA producers</b>Licensed, with weekly capacity</a>
-          <a href="#commitment"><b>What we commit to</b>Criteria and replacement</a>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a class="nav-link" href="#math">The math</a>
-      </div>
+      <a class="nav-link" href="#services">What we run</a>
+      <a class="nav-link" href="#how">How it works</a>
+      <a class="nav-link" href="#creative">Our work</a>
+      <a class="nav-link" href="#results">Results</a>
+      <a class="nav-link" href="#fit">Who it's for</a>
+      <a class="nav-link" href="#math">The math</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
@@ -87,7 +66,16 @@
 <main id="main">
 
 <!-- ===== 1 · HERO ===== -->
-<section class="hero" id="top">
+<section class="hero hb-stage" id="top">
+  <!-- Atmospheric backdrop, painted behind the hero content.
+       Layer order: sky → haze → silhouette → bloom → grain → fade-to-white. -->
+  <div class="hb-sky" aria-hidden="true"></div>
+  <div class="hb-haze" aria-hidden="true"></div>
+  <div class="hb-silhouette" aria-hidden="true"></div>
+  <div class="hb-bloom" aria-hidden="true"></div>
+  <div class="hb-grain" aria-hidden="true"></div>
+  <div class="hb-fade-bottom" aria-hidden="true"></div>
+
   <div class="container">
     <span class="pill"><svg aria-hidden="true"><use href="#i-users"/></svg> For annuity advisors &amp; FIA producers</span>
 
@@ -441,6 +429,171 @@
   </div>
 </section>
 
+<!-- ===== STORY: animated client-journey narrative ===== -->
+<section id="story" class="story">
+  <div class="container">
+
+    <header class="sec-head">
+      <span class="pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 4v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Client journey</span>
+      </span>
+      <h2 class="h2">From ad to appointment, one prospect at a time</h2>
+      <p class="body">Here's how a single lead moves from seeing an ad to sitting down with the advisor — start to finish.</p>
+    </header>
+
+    <div class="st-stage" data-story>
+
+      <div class="st-controls">
+        <button type="button" class="st-play-btn" data-story-play aria-pressed="false">
+          <svg class="st-icon" data-icon="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          <svg class="st-icon" data-icon="pause" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+          <span data-story-play-label>Play story</span>
+        </button>
+
+        <div class="st-progress">
+          <div class="st-progress-track" aria-hidden="true">
+            <div class="st-progress-fill" data-story-fill></div>
+          </div>
+          <ol class="st-dots" data-story-dots aria-label="Jump to a story beat">
+            <li><button type="button" data-story-jump="0" aria-current="step"><span aria-hidden="true">1</span><span class="st-sr-only">Beat 1, Tuesday 8:14pm — sees the ad</span></button></li>
+            <li><button type="button" data-story-jump="1"><span aria-hidden="true">2</span><span class="st-sr-only">Beat 2, 8:16pm — watches video, answers questions</span></button></li>
+            <li><button type="button" data-story-jump="2"><span aria-hidden="true">3</span><span class="st-sr-only">Beat 3, Wednesday 10:02am — setter calls</span></button></li>
+            <li><button type="button" data-story-jump="3"><span aria-hidden="true">4</span><span class="st-sr-only">Beat 4, 10:09am — booked for Tuesday 10:30</span></button></li>
+            <li><button type="button" data-story-jump="4"><span aria-hidden="true">5</span><span class="st-sr-only">Beat 5, Monday and Tuesday morning — reminders sent</span></button></li>
+            <li><button type="button" data-story-jump="5"><span aria-hidden="true">6</span><span class="st-sr-only">Beat 6, Tuesday 10:30am — appointment kept</span></button></li>
+          </ol>
+        </div>
+      </div>
+
+      <ol class="st-timeline" data-story-list>
+
+        <!-- Beat 1 -->
+        <li class="st-beat" data-story-beat="0">
+          <button type="button" class="st-beat-time" data-story-jump="0">
+            <span class="st-eyebrow">Tuesday, 8:14pm</span>
+          </button>
+          <div class="st-beat-content">
+            <p class="st-beat-text">Robert, 63 and two years into retirement, is scrolling Facebook when an ad about running out of income stops his thumb.</p>
+            <div class="st-visual st-visual-feed" aria-hidden="true">
+              <div class="st-phone">
+                <div class="st-feed-post">
+                  <div class="st-feed-post-head">
+                    <span class="st-feed-avatar"></span>
+                    <span class="st-feed-name">Mabiat Advisor Marketing</span>
+                    <span class="st-feed-sponsored">Sponsored</span>
+                  </div>
+                  <p class="st-feed-copy">What happens if your savings have to last 30 years?</p>
+                  <span class="st-feed-cta">Learn more</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Beat 2 -->
+        <li class="st-beat" data-story-beat="1">
+          <button type="button" class="st-beat-time" data-story-jump="1">
+            <span class="st-eyebrow">8:16pm</span>
+          </button>
+          <div class="st-beat-content">
+            <p class="st-beat-text">Two minutes later he watches a short video and answers a few quick questions on the landing page.</p>
+            <div class="st-visual st-visual-form" aria-hidden="true">
+              <div class="st-form">
+                <div class="st-form-row">
+                  <p class="st-form-q">Are you currently retired?</p>
+                  <p class="st-form-a">Yes, for 2 years</p>
+                </div>
+                <div class="st-form-row">
+                  <p class="st-form-q">Investable assets (excl. home)?</p>
+                  <p class="st-form-a">$500K–$1M</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Beat 3 -->
+        <li class="st-beat" data-story-beat="2">
+          <button type="button" class="st-beat-time" data-story-jump="2">
+            <span class="st-eyebrow">Wednesday, 10:02am</span>
+          </button>
+          <div class="st-beat-content">
+            <p class="st-beat-text">A setter calls the next morning — the call is recorded — and confirms the details on file.</p>
+            <ul class="st-checklist" aria-hidden="true">
+              <li><span class="st-check"><svg viewBox="0 0 16 16" width="10" height="10"><path d="M2 8.5 6 12l8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>$500K–$1M investable</li>
+              <li><span class="st-check"><svg viewBox="0 0 16 16" width="10" height="10"><path d="M2 8.5 6 12l8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Retired 2 years</li>
+              <li><span class="st-check"><svg viewBox="0 0 16 16" width="10" height="10"><path d="M2 8.5 6 12l8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Lives in Florida</li>
+              <li><span class="st-check"><svg viewBox="0 0 16 16" width="10" height="10"><path d="M2 8.5 6 12l8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Wants a guaranteed-income review</li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Beat 4 -->
+        <li class="st-beat" data-story-beat="3">
+          <button type="button" class="st-beat-time" data-story-jump="3">
+            <span class="st-eyebrow">10:09am</span>
+          </button>
+          <div class="st-beat-content">
+            <p class="st-beat-text">Seven minutes later he's booked into Tuesday at 10:30 — a slot the advisor said they could work.</p>
+            <div class="st-visual st-visual-cal" aria-hidden="true">
+              <div class="st-cal">
+                <div class="st-cal-head">Tuesday</div>
+                <div class="st-cal-slots">
+                  <span class="st-cal-slot">9:00</span>
+                  <span class="st-cal-slot">9:30</span>
+                  <span class="st-cal-slot">10:00</span>
+                  <span class="st-cal-slot st-cal-slot--booked">10:30</span>
+                  <span class="st-cal-slot">11:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Beat 5 -->
+        <li class="st-beat" data-story-beat="4">
+          <button type="button" class="st-beat-time" data-story-jump="4">
+            <span class="st-eyebrow">Monday + Tuesday morning</span>
+          </button>
+          <div class="st-beat-content">
+            <p class="st-beat-text">Reminders follow: a text, an email, and a confirmation call the morning of.</p>
+            <div class="st-chips" aria-hidden="true">
+              <span class="st-chip">Text sent — Monday</span>
+              <span class="st-chip">Email sent — Monday</span>
+              <span class="st-chip">Confirmation call — Tuesday, 8am</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Beat 6 -->
+        <li class="st-beat" data-story-beat="5">
+          <button type="button" class="st-beat-time" data-story-jump="5">
+            <span class="st-eyebrow">Tuesday, 10:30am</span>
+          </button>
+          <div class="st-beat-content">
+            <p class="st-beat-text">Robert shows up. The advisor opens the call already knowing exactly why he's there.</p>
+            <div class="st-summary" aria-hidden="true">
+              <p class="st-summary-line"><strong>Robert, 63</strong> · Florida</p>
+              <p class="st-summary-line">$500K–$1M investable · retired 2 years</p>
+              <p class="st-summary-line">Wants: guaranteed-income review</p>
+              <p class="st-summary-status">Appointment kept — 10:30am</p>
+            </div>
+          </div>
+        </li>
+
+      </ol>
+
+      <p class="st-sr-only" aria-live="polite" data-story-status></p>
+
+      <p class="caption st-caption">Illustrative. Composite example of how an appointment reaches your calendar — not a specific client.</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===== 3 · BOTTLENECK ===== -->
 <section class="bottleneck band-rule">
   <div class="container">
@@ -509,6 +662,127 @@
         <p>You speak with qualified people who already know why they're on the call. Every recommendation and suitability call stays yours.</p>
       </li>
     </ol>
+  </div>
+</section>
+
+<!-- ===== COMPARE (pipeline comparison) ===== -->
+<section id="compare">
+  <div class="container">
+
+    <header class="sec-head">
+      <span class="pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M4 20V10M12 20V4M20 20V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Pipeline comparison
+      </span>
+      <h2 class="h2">More steps than everyone else. That's the point.</h2>
+      <p class="body">Most lead-gen shops stop the moment a form is submitted. Ours keeps going &mdash; a recorded call, a data check, a slot the advisor actually picked &mdash; because a name and a phone number isn't an appointment.</p>
+    </header>
+
+    <div class="cmp-board">
+
+      <!-- Track A: typical lead gen -->
+      <div class="cmp-track cmp-track--a is-dimmed" data-track="a">
+        <div class="cmp-track-head">
+          <span class="caption cmp-track-label">Typical lead generation</span>
+          <span class="caption cmp-track-count">3 steps</span>
+        </div>
+        <ol class="cmp-steps">
+          <li class="cmp-step">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">1</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Ad runs</p>
+            </div>
+          </li>
+          <li class="cmp-step">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">2</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Form filled</p>
+            </div>
+          </li>
+          <li class="cmp-step">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">3</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Lead emailed to you</p>
+            </div>
+          </li>
+        </ol>
+        <div class="cmp-result cmp-result--a">
+          <p>A name and a number. You do the qualifying.</p>
+        </div>
+      </div>
+
+      <!-- Track B: Mabiat AM pipeline -->
+      <div class="cmp-track cmp-track--b" data-track="b">
+        <div class="cmp-track-head">
+          <span class="caption cmp-track-label">The Mabiat AM pipeline</span>
+          <span class="caption cmp-track-count">6 steps</span>
+        </div>
+        <ol class="cmp-steps">
+          <li class="cmp-step">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">1</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Ad runs</p>
+            </div>
+          </li>
+          <li class="cmp-step">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">2</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Landing page + video</p>
+            </div>
+          </li>
+          <li class="cmp-step cmp-step--emphasis">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">3</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Qualification call <span class="cmp-badge">Recorded</span></p>
+              <p class="cmp-step-sub">Every call is recorded, start to finish.</p>
+            </div>
+          </li>
+          <li class="cmp-step cmp-step--emphasis">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">4</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Data check <span class="cmp-badge">Verified</span></p>
+              <p class="cmp-step-sub">Assets, retirement stage, licensed state.</p>
+            </div>
+          </li>
+          <li class="cmp-step">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">5</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Booked into a slot you chose</p>
+            </div>
+          </li>
+          <li class="cmp-step">
+            <span class="cmp-connector" aria-hidden="true"><span class="cmp-connector-fill"></span></span>
+            <span class="cmp-marker"><span class="cmp-marker-num">6</span></span>
+            <div class="cmp-step-content">
+              <p class="cmp-step-text">Reminders + re-confirm</p>
+            </div>
+          </li>
+        </ol>
+        <div class="cmp-result cmp-result--b">
+          <p>A qualified person, at a time you picked.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button type="button" class="cmp-replay" id="cmpReplay">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <path d="M20 12a8 8 0 1 1-2.34-5.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M20 4v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Replay</span>
+    </button>
+
   </div>
 </section>
 
@@ -582,6 +856,275 @@
     </div>
 
     <p class="caption" style="margin-top:34px;color:#6E7885">Illustrative. Figures shown are an example of how the dashboard reports, not a representation of results.</p>
+  </div>
+</section>
+
+<!-- ===== CREATIVE SHOWCASE ===== -->
+<section id="creative" class="cw-section">
+  <div class="container">
+    <header class="sec-head">
+      <span class="pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M12 3l2.2 5.3L20 10.5l-5.3 2.2L12 18l-2.2-5.3L4 10.5l5.8-2.2L12 3z" fill="currentColor"/>
+        </svg>
+        Creative showcase
+      </span>
+      <h2 class="h2">The ads, video and pages we build for you</h2>
+      <p class="body">A look at the creative formats we write, design and run across Meta placements &mdash; feed ads, short-form video, Stories, landing pages and retargeting. Hover or tap a piece to see it come alive; click to open it.</p>
+    </header>
+
+    <ul class="cw-grid" data-cw-grid>
+
+      <!-- 1: Feed ad -->
+      <li class="cw-item">
+        <button type="button"
+                class="cw-tile cw-tile--feed"
+                data-cw-tile
+                data-cw-type="feed"
+                data-title="Facebook &amp; Instagram feed ad"
+                data-desc="A single-image feed ad built for the newsfeed: a calm, benefit-led headline, a clear call to action, and creative sized for both Facebook and Instagram placements.">
+          <span class="cw-tile-kicker">Feed ad</span>
+          <span class="cw-mock cw-mock--feed" aria-hidden="true">
+            <svg class="cw-scene" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="cwFeedSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#F9D9A6"/>
+                  <stop offset="55%" stop-color="#F3A26B"/>
+                  <stop offset="100%" stop-color="#E9835B"/>
+                </linearGradient>
+                <linearGradient id="cwFeedSea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2E7D74"/>
+                  <stop offset="100%" stop-color="#1F5C56"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="200" height="250" fill="url(#cwFeedSky)"/>
+              <circle cx="100" cy="120" r="34" fill="#FBE7C0" opacity="0.9"/>
+              <rect x="0" y="150" width="200" height="100" fill="url(#cwFeedSea)"/>
+              <path d="M0 150 Q50 138 100 150 T200 150 V250 H0 Z" fill="#256B62" opacity="0.6"/>
+            </svg>
+            <span class="cw-feed-card">
+              <span class="cw-feed-body">
+                <span class="cw-feed-headline">Retirement income, without the guesswork</span>
+                <span class="cw-feed-sub">Sponsored &middot; Mabiat Advisor Marketing</span>
+                <span class="cw-feed-cta">Learn more</span>
+              </span>
+            </span>
+            <span class="cw-feed-engagement">
+              <span class="cw-feed-stat"><span class="cw-count" data-cw-count data-base="128">128</span> likes</span>
+              <span class="cw-feed-stat"><span class="cw-count" data-cw-count data-base="14">14</span> comments</span>
+            </span>
+          </span>
+          <span class="cw-tile-caption">Facebook / Instagram feed ad</span>
+        </button>
+      </li>
+
+      <!-- 2: Video ad -->
+      <li class="cw-item">
+        <button type="button"
+                class="cw-tile cw-tile--video"
+                data-cw-tile
+                data-cw-type="video"
+                data-title="Short-form video ad"
+                data-desc="A 15&ndash;30 second video ad built for feed and Reels placements, with on-screen captions and a soft, aspirational tone suited to a 60+ audience.">
+          <span class="cw-tile-kicker">Video ad</span>
+          <span class="cw-mock cw-mock--video" aria-hidden="true">
+            <svg class="cw-scene" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="cwVidSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FCE2B8"/>
+                  <stop offset="60%" stop-color="#F0A868"/>
+                  <stop offset="100%" stop-color="#DC7E56"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="200" height="250" fill="url(#cwVidSky)"/>
+              <circle cx="140" cy="90" r="26" fill="#FFF3D9" opacity="0.85"/>
+              <path d="M0 170 Q60 150 100 168 T200 160 V250 H0 Z" fill="#3B9A8B"/>
+              <path d="M0 195 Q70 178 100 192 T200 186 V250 H0 Z" fill="#2C7A6E"/>
+            </svg>
+            <span class="cw-video-play" aria-hidden="true">
+              <svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(16,19,24,.35)"/><path d="M10 8l6 4-6 4z" fill="#fff"/></svg>
+            </span>
+            <span class="cw-video-bar">
+              <span class="cw-video-progress-fill"></span>
+              <span class="cw-video-scrubber"></span>
+            </span>
+            <span class="cw-video-time">0:04&nbsp;/&nbsp;0:22</span>
+          </span>
+          <span class="cw-tile-caption">Short-form video ad</span>
+        </button>
+      </li>
+
+      <!-- 3: Story / Reel -->
+      <li class="cw-item">
+        <button type="button"
+                class="cw-tile cw-tile--story"
+                data-cw-tile
+                data-cw-type="story"
+                data-title="Instagram Story / Reel"
+                data-desc="A full-screen vertical Story or Reel creative with a swipe-up style prompt, designed to feel native to the Instagram Stories tray rather than like a traditional ad.">
+          <span class="cw-tile-kicker">Story / Reel</span>
+          <span class="cw-mock cw-mock--story" aria-hidden="true">
+            <svg class="cw-scene" viewBox="0 0 140 250" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="cwStorySky" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#F6C453"/>
+                  <stop offset="45%" stop-color="#EF9A6B"/>
+                  <stop offset="100%" stop-color="#2E8479"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="140" height="250" fill="url(#cwStorySky)"/>
+              <circle cx="70" cy="90" r="30" fill="#FFF1D6" opacity="0.8"/>
+            </svg>
+            <span class="cw-story-segs">
+              <span class="cw-story-seg"></span>
+              <span class="cw-story-seg"></span>
+              <span class="cw-story-seg"></span>
+            </span>
+            <span class="cw-story-caption">Are you retirement&#8209;ready?<br><span class="cw-story-cta">Swipe up</span></span>
+          </span>
+          <span class="cw-tile-caption">Instagram Story / Reel</span>
+        </button>
+      </li>
+
+      <!-- 4: Landing page -->
+      <li class="cw-item">
+        <button type="button"
+                class="cw-tile cw-tile--landing"
+                data-cw-tile
+                data-cw-type="landing"
+                data-title="Landing page"
+                data-desc="The page a viewer lands on after clicking the ad: a short qualifying form, a plain-language explanation of the offer, and no navigation menu to distract from booking a call."
+                >
+          <span class="cw-tile-kicker">Landing page</span>
+          <span class="cw-mock cw-mock--landing" aria-hidden="true">
+            <span class="cw-browser-bar">
+              <span class="cw-browser-dot"></span>
+              <span class="cw-browser-dot"></span>
+              <span class="cw-browser-dot"></span>
+              <span class="cw-browser-url">mabiatadvisormarketing.com/retire</span>
+            </span>
+            <span class="cw-landing-viewport">
+              <span class="cw-landing-inner">
+                <svg class="cw-scene cw-scene--landing" viewBox="0 0 200 140" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="cwLandHero" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#FBE3BE"/>
+                      <stop offset="100%" stop-color="#EF9E6F"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="0" y="0" width="200" height="70" fill="url(#cwLandHero)"/>
+                  <circle cx="168" cy="24" r="14" fill="#fff" opacity="0.5"/>
+                </svg>
+                <span class="cw-land-line cw-land-line--title"></span>
+                <span class="cw-land-line"></span>
+                <span class="cw-land-line cw-land-line--short"></span>
+                <span class="cw-land-btn">See if you qualify</span>
+                <span class="cw-land-field"></span>
+                <span class="cw-land-field"></span>
+                <span class="cw-land-line"></span>
+                <span class="cw-land-line cw-land-line--short"></span>
+                <span class="cw-land-btn cw-land-btn--ghost">Book a call</span>
+              </span>
+            </span>
+          </span>
+          <span class="cw-tile-caption">Landing page</span>
+        </button>
+      </li>
+
+      <!-- 5: Retargeting carousel -->
+      <li class="cw-item">
+        <button type="button"
+                class="cw-tile cw-tile--carousel"
+                data-cw-tile
+                data-cw-type="carousel"
+                data-title="Retargeting carousel ad"
+                data-desc="A multi-card carousel shown to people who visited the landing page but didn't book &mdash; each card leads with a different, plain-language reason to come back and finish."
+                >
+          <span class="cw-tile-kicker">Retargeting</span>
+          <span class="cw-mock cw-mock--carousel" aria-hidden="true">
+            <span class="cw-carousel-track">
+              <span class="cw-carousel-panel is-active">
+                <svg class="cw-scene" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                  <rect width="100" height="100" fill="#F2AA6B"/>
+                  <circle cx="72" cy="30" r="16" fill="#FCE3B8"/>
+                  <rect y="66" width="100" height="34" fill="#2C7A6E"/>
+                </svg>
+                <span class="cw-carousel-label">Guaranteed income</span>
+              </span>
+              <span class="cw-carousel-panel">
+                <svg class="cw-scene" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                  <rect width="100" height="100" fill="#EF9670"/>
+                  <circle cx="26" cy="26" r="14" fill="#FBE7C0"/>
+                  <rect y="70" width="100" height="30" fill="#3B9A8B"/>
+                </svg>
+                <span class="cw-carousel-label">Protect your savings</span>
+              </span>
+              <span class="cw-carousel-panel">
+                <svg class="cw-scene" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                  <rect width="100" height="100" fill="#DC8A5E"/>
+                  <circle cx="50" cy="34" r="15" fill="#FDEBCB"/>
+                  <rect y="72" width="100" height="28" fill="#1F6F66"/>
+                </svg>
+                <span class="cw-carousel-label">Talk to an advisor</span>
+              </span>
+            </span>
+            <span class="cw-carousel-dots">
+              <span class="cw-carousel-dot is-active"></span>
+              <span class="cw-carousel-dot"></span>
+              <span class="cw-carousel-dot"></span>
+            </span>
+          </span>
+          <span class="cw-tile-caption">Retargeting carousel ad</span>
+        </button>
+      </li>
+
+      <!-- 6: Results / analytics -->
+      <li class="cw-item">
+        <button type="button"
+                class="cw-tile cw-tile--analytics"
+                data-cw-tile
+                data-cw-type="analytics"
+                data-title="Campaign reporting panel"
+                data-desc="A simplified view of the kind of reporting advisors get: reach, engagement, form completions and booked calls tracked in one place, in plain language, week over week."
+                >
+          <span class="cw-tile-kicker">Reporting</span>
+          <span class="cw-mock cw-mock--analytics" aria-hidden="true">
+            <span class="cw-chart">
+              <span class="cw-bar-group">
+                <span class="cw-bar" style="--cw-h:.38; --cw-d:0s"></span>
+                <span class="cw-bar" style="--cw-h:.58; --cw-d:.06s"></span>
+                <span class="cw-bar" style="--cw-h:.46; --cw-d:.12s"></span>
+                <span class="cw-bar" style="--cw-h:.82; --cw-d:.18s"></span>
+                <span class="cw-bar" style="--cw-h:.64; --cw-d:.24s"></span>
+              </span>
+              <svg class="cw-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
+                <path class="cw-spark-path" d="M0 24 Q 20 22 30 16 T 55 12 T 78 8 T 100 4" fill="none" stroke="#2C7A6E" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="cw-chart-labels">
+              <span>Reach</span><span>Engage</span><span>Leads</span><span>Booked</span><span>Kept</span>
+            </span>
+          </span>
+          <span class="cw-tile-caption">Campaign reporting panel</span>
+        </button>
+      </li>
+
+    </ul>
+
+    <p class="caption cw-note">Creative shown is illustrative sample work built for this showcase &mdash; not a real client campaign, and any figures inside the mock ad frames are for illustration only, not actual results.</p>
+  </div>
+
+  <!-- Detail modal -->
+  <div class="cw-modal-overlay" data-cw-overlay hidden>
+    <div class="cw-modal" role="dialog" aria-modal="true" aria-labelledby="cw-modal-title" data-cw-modal>
+      <button type="button" class="cw-modal-close" data-cw-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="cw-modal-media" data-cw-modal-media></div>
+      <h3 id="cw-modal-title" class="cw-modal-title" data-cw-modal-title></h3>
+      <p class="cw-modal-desc" data-cw-modal-desc></p>
+      <p class="caption cw-modal-note">Illustrative sample creative, not an actual client result.</p>
+    </div>
   </div>
 </section>
 
@@ -678,6 +1221,213 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="container">
+
+    <header class="sec-head">
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 10h.01M12 10h.01M16 10h.01" />
+          <path d="M21 12c0 4.42-4.03 8-9 8-1.16 0-2.27-.2-3.29-.55L3 21l1.62-4.05C3.6 15.5 3 13.82 3 12c0-4.42 4.03-8 9-8s9 3.58 9 8Z" />
+        </svg>
+        Track record
+      </span>
+      <h2 class="h2">What advisors say, and the numbers behind it.</h2>
+      <p class="body">The structural facts about how the program runs, alongside advisor feedback as it comes in.</p>
+    </header>
+
+    <!-- ============================================================
+         PART 1 — STAT BAND
+         Hero claim + structural facts. No performance metrics
+         (close rates, ROI, appointment counts, revenue) belong here —
+         only things that are true by design of the program.
+         ============================================================ -->
+    <div class="pf-stat-band">
+      <div class="pf-stat-hero">
+        <p class="pf-stat-value">$20M+</p>
+        <p class="pf-stat-label">in ad spend managed on Facebook and Instagram</p>
+      </div>
+      <div class="pf-stat-tiles">
+        <div class="pf-stat-tile">
+          <p class="pf-tile-value">One firm</p>
+          <p class="pf-tile-label">per territory — exclusive, never shared with a competitor</p>
+        </div>
+        <div class="pf-stat-tile">
+          <p class="pf-tile-value">$250K+</p>
+          <p class="pf-tile-label">minimum investable assets, the qualifying criterion for every lead</p>
+        </div>
+        <div class="pf-stat-tile">
+          <p class="pf-tile-value">US-based</p>
+          <p class="pf-tile-label">appointment-setting team, not an overseas call center</p>
+        </div>
+      </div>
+    </div>
+    <p class="caption pf-stat-caption">Ad spend figures refer to cumulative media spend managed across client ad accounts on Facebook and Instagram, not a projection or guarantee of results for any individual advisor.</p>
+
+    <!--
+      ============================================================
+      REPLACING THESE WITH REAL TESTIMONIALS
+      ============================================================
+      Everything inside .pf-slack below is a structural mock-up, not
+      real client feedback. Before this goes live, swap the following
+      placeholder strings for real, permissioned quotes:
+
+        - .pf-msg-name / .pf-cite-name  → the real display name (or the
+          name + description the person has approved for public use).
+        - .pf-avatar text (currently "A A", "F P", "P R", "M M")
+          → either leave as neutral initials the person is comfortable
+          with, or replace with a real photo (swap the <div class=
+          "pf-avatar"> for an <img>, keep the same size/rounded-square
+          shape).
+        - .pf-msg-text / blockquote <p> text in brackets, e.g.
+          "[Paste the advisor's own words here...]" → the person's own
+          words, verbatim or lightly trimmed for length only.
+        - .pf-cite-firm / .pf-cite-state → the real firm name and state,
+          only if the person has approved naming their firm publicly.
+        - Timestamps and emoji reaction counts are cosmetic UI chrome,
+          not factual claims — adjust freely, they don't need sourcing.
+
+      IMPORTANT: every quote must be the person's own words, and you
+      need their explicit permission to publish it with their name
+      and/or firm attached (FTC Endorsement Guides). Do not write new
+      quotes on someone's behalf and attribute them to a real person.
+      If a quote can't be sourced yet, leave the bracketed placeholder
+      in place rather than inventing one.
+      ============================================================
+    -->
+    <div class="pf-slack" id="pf-slack">
+      <div class="pf-slack-header">
+        <div class="pf-slack-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 4 7 20M17 4l-2 16M4 9h16M3 15h16" />
+          </svg>
+          advisor-feedback
+        </div>
+        <button type="button" class="pf-marquee-toggle" id="pf-marquee-toggle" aria-pressed="false" aria-controls="pf-slack-panel">
+          <svg class="pf-icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg class="pf-icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>
+          <span class="pf-marquee-toggle-label">Pause auto-scroll</span>
+        </button>
+      </div>
+
+      <div class="pf-slack-panel" id="pf-slack-panel" tabindex="0" role="region" aria-label="Advisor feedback messages, scrollable">
+        <ol class="pf-slack-messages">
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-a" aria-hidden="true">A A</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">Advisor name — [state]</span>
+                <span class="pf-msg-time">9:14 AM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the advisor's own words here — what changed for them, in one or two sentences.]</p>
+              <div class="pf-reactions">
+                <span class="pf-reaction">🔥 <span aria-label="3 reactions">3</span></span>
+              </div>
+              <ol class="pf-thread">
+                <li class="pf-reply">
+                  <div class="pf-avatar pf-avatar-m" aria-hidden="true">M M</div>
+                  <div class="pf-msg-body">
+                    <p class="pf-msg-meta">
+                      <span class="pf-msg-name">Mabiat AM team</span>
+                      <span class="pf-msg-time">9:20 AM</span>
+                    </p>
+                    <p class="pf-msg-text">[Optional — a short internal reply or thank-you from the Mabiat AM team. Delete this reply if unused.]</p>
+                  </div>
+                </li>
+                <li class="pf-reply">
+                  <div class="pf-avatar pf-avatar-a" aria-hidden="true">A A</div>
+                  <div class="pf-msg-body">
+                    <p class="pf-msg-meta">
+                      <span class="pf-msg-name">Advisor name — [state]</span>
+                      <span class="pf-msg-time">9:24 AM</span>
+                    </p>
+                    <p class="pf-msg-text">[Optional — a second threaded reply. Delete if unused.]</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </li>
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-f" aria-hidden="true">F P</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">Firm principal — [state]</span>
+                <span class="pf-msg-time">9:47 AM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the firm principal's own words here — one or two sentences, their language, not rewritten.]</p>
+              <div class="pf-reactions">
+                <span class="pf-reaction">👍 <span aria-label="2 reactions">2</span></span>
+              </div>
+            </div>
+          </li>
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-p" aria-hidden="true">P R</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">FIA producer — [state]</span>
+                <span class="pf-msg-time">11:02 AM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the FIA producer's own words here — what specifically improved for their calendar or pipeline.]</p>
+              <div class="pf-reactions">
+                <span class="pf-reaction">🙌 <span aria-label="4 reactions">4</span></span>
+                <span class="pf-reaction">🔥 <span aria-label="1 reaction">1</span></span>
+              </div>
+            </div>
+          </li>
+
+          <li class="pf-msg">
+            <div class="pf-avatar pf-avatar-m" aria-hidden="true">R O</div>
+            <div class="pf-msg-body">
+              <p class="pf-msg-meta">
+                <span class="pf-msg-name">RIA owner — [state]</span>
+                <span class="pf-msg-time">Yesterday, 4:12 PM</span>
+              </p>
+              <p class="pf-msg-text">[Paste the RIA owner's own words here — keep it short, their phrasing, not a paraphrase.]</p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PART 3 — WIDER TESTIMONIAL ROW
+         Same placeholder-copy rule as the Slack block above: swap the
+         blockquote text and every .pf-cite-* value for a real,
+         permissioned quote before this goes live.
+         ============================================================ -->
+    <div class="pf-quotes">
+      <blockquote class="pf-quote">
+        <p>[Paste a longer, permissioned quote here — two or three sentences in the advisor's own words about what changed for their book of business.]</p>
+        <cite class="pf-cite">
+          <span class="pf-cite-name">Advisor name</span>
+          <span class="pf-cite-meta"><span class="pf-cite-firm">Firm name</span><span class="pf-cite-sep" aria-hidden="true">·</span><span class="pf-cite-state">State</span></span>
+        </cite>
+      </blockquote>
+
+      <blockquote class="pf-quote">
+        <p>[Paste a longer, permissioned quote here — two or three sentences in the firm principal's own words about the territory model or lead quality.]</p>
+        <cite class="pf-cite">
+          <span class="pf-cite-name">Firm principal</span>
+          <span class="pf-cite-meta"><span class="pf-cite-firm">Firm name</span><span class="pf-cite-sep" aria-hidden="true">·</span><span class="pf-cite-state">State</span></span>
+        </cite>
+      </blockquote>
+
+      <blockquote class="pf-quote">
+        <p>[Paste a longer, permissioned quote here — two or three sentences in the FIA producer's own words about the booking process or calendar.]</p>
+        <cite class="pf-cite">
+          <span class="pf-cite-name">FIA producer</span>
+          <span class="pf-cite-meta"><span class="pf-cite-firm">Firm name</span><span class="pf-cite-sep" aria-hidden="true">·</span><span class="pf-cite-state">State</span></span>
+        </cite>
+      </blockquote>
+    </div>
+
   </div>
 </section>
 
